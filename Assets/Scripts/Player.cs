@@ -77,7 +77,7 @@ public class Player : MonoBehaviour {
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
-        // Kijkt of de speler is gecrashed tegen een astroid.
+        // Kijkt of de speler is gecrashed tegen een asteroid.
         if (collision.gameObject.tag == "Asteroid") {
             // Stopt alle movement van de speler.
             _rigidbody.velocity = Vector3.zero;

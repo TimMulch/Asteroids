@@ -28,7 +28,7 @@ public class Bullet : MonoBehaviour {
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
-        // Verwijdert het object als er een collision is met ander object (astroid).
+        // Verwijdert het object als er een collision is met ander object (asteroid).
         Destroy(this.gameObject);
     }
 }

@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour{
     /// Speler
     public Player player;
 
-    /// Explosie van astroid
+    /// Explosie van asteroid
     public ParticleSystem explosionEffect;
 
     /// Game Over Schem
@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour{
     }
 
     public void NewGame() {
-        // Verwijderd alle astroid objecten (als deze nog bestaan) in het begin van de game. Anders krijg je gelijk astroids in je scherm en dat moeten we nie hebben.
+        // Verwijderd alle asteroid objecten (als deze nog bestaan) in het begin van de game. Anders krijg je gelijk asteroids in je scherm en dat moeten we nie hebben.
         Asteroid[] asteroids = FindObjectsOfType<Asteroid>();
         for (int i = 0; i < asteroids.Length; i++) {
             Destroy(asteroids[i].gameObject);
