@@ -1,6 +1,5 @@
 using UnityEngine;
 
-// Handles the movement and collision of an asteroid.
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
@@ -49,8 +48,10 @@ public class Asteroid : MonoBehaviour {
 
     public void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.tag == "Bullet") { //Als de astroid geraakt is door een bullet.
+            // Bevat geluideffect voor explosie.
             GameObject obj = GameObject.Find("AudioHolder");
             AudioSource aud = obj.GetComponent<AudioSource>();
+            // Speel explosie geluidje af
             aud.Play();
             if ((this.size * 0.5f) >= this.minSize) { // Als de astroid groot genoeg is om in 2 te splitten.
                 // Maakt 2 nieuwe Astroids aan. Als een geraakt is split deze in 2 net zo lang tot dat deze klein genoeg is.
