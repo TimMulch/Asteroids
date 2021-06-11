@@ -37,6 +37,7 @@ public class Player : MonoBehaviour {
     private void Update(){
         // Als de speler naar voren gaat met [W] of [🠕]: Beweeg dan de speler naar voren
         thrusting = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
+        
         // Duwt de speler in de juiste richting op basis van de movement keys [A][S] of [🠔][➞]
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
             turnDirection = 1.0f;

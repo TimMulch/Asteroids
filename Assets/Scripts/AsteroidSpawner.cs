@@ -4,14 +4,17 @@
 public class AsteroidSpawner : MonoBehaviour {
     /// Hoofdobject (Clones)
     public Asteroid asteroidPrefab;
+
     /// Hoe ver de asteroids kunnen spawnen vanaf speler.
     public float spawnDistance = 12.0f;
+
     /// Om de hoeveel seconden er een asteroid spawned.
     public float spawnRate = 1.0f;
+
     /// Hoeveel asteroids er elke keer spawnen. Standaard is 1 net als orgineel.
     public int amountPerSpawn = 1;
+
     /// Radius waarin de asteroids kunnen afwijken van orginele spawnpoint.
-    [Range(0.0f, 45.0f)]
     public float trajectoryVariance = 15.0f;
 
     private void Start() {
