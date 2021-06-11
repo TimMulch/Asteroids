@@ -21,10 +21,10 @@ public class Bullet : MonoBehaviour {
         _rigidbody = GetComponent<Rigidbody2D>();
     }
 
-    public void Bullet(Vector2 direction) {
+    public void Project(Vector2 direction) {
         // Schiet de bullet in de juiste directie met de gedefineerde snelheid.
         _rigidbody.AddForce(direction * this.speed);
-        
+
         // Verwijderd het object "bullet" als de waarde maxLifetime is bereikt.
         Destroy(this.gameObject, this.maxLifetime);
     }
