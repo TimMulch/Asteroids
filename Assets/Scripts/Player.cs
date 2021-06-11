@@ -17,9 +17,9 @@ public class Player : MonoBehaviour {
     // Het object dat gecloned wordt als er een nieuwe bullet wordt gemaakt.
     public Bullet bulletPrefab;
     // De huidige directie waar de speler naar draait. 1=left, -1=right, 0=none
-    private float _turnDirection = 0.0f;
+    private float turnDirection = 0.0f;
     /// Boolean als de speler naar voren gaat. if thrusting.
-    private bool _thrusting = false;
+    private bool thrusting = false;
     // Maakt een object van de speler.
     private Rigidbody2D _rigidbody;
 
@@ -36,14 +36,14 @@ public class Player : MonoBehaviour {
 
     private void Update(){
         // Als de speler naar voren gaat met [W] of [🠕]: Beweeg dan de speler naar voren
-        _thrusting = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
+        thrusting = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
         // Duwt de speler in de juiste richting op basis van de movement keys [A][S] of [🠔][➞]
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
-            _turnDirection = 1.0f;
+            turnDirection = 1.0f;
         } else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) {
-            _turnDirection = -1.0f;
+            turnDirection = -1.0f;
         } else {
-            _turnDirection = 0.0f;
+            turnDirection = 0.0f;
         }
 
         // Als de speler op spatie drukt of klikt met linkermuisknop. Schiet dan bullet.
@@ -54,13 +54,13 @@ public class Player : MonoBehaviour {
 
     private void FixedUpdate() {
         // Geef gas / thrust
-        if (_thrusting) {
+        if (thrusting) {
             _rigidbody.AddForce(this.transform.up * this.thrustSpeed);
         }
 
         // Geef torque om beetje te vliegen nadat je gas "thrust" heb gegeven
-        if (_turnDirection != 0.0f) {
-            _rigidbody.AddTorque(this.rotationSpeed * _turnDirection);
+        if (turnDirection != 0.0f) {
+            _rigidbody.AddTorque(this.rotationSpeed * turnDirection);
         }
     }
 
