@@ -19,19 +19,19 @@ public class Asteroid : MonoBehaviour {
     // Max tijd voordat de asteroid despawned (performance boost)
     public float maxLifetime = 30.0f;
     // SpriteRenderer
-    private SpriteRenderer _spriteRenderer;
+    private SpriteRenderer spriteRenderer;
     // Maakt een object aan voor de asteroid.
     private Rigidbody2D _rigidbody;
 
     private void Awake() {
         // Maakt een object aan voor de asteroid.
         _rigidbody = GetComponent<Rigidbody2D>();
-        _spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Start() {
         // Kiest een random sprite als asteroid, anders lijkt alles op elkaar.
-        _spriteRenderer.sprite = this.sprites[Random.Range(0, this.sprites.Length)];
+        spriteRenderer.sprite = this.sprites[Random.Range(0, this.sprites.Length)];
         // Random draai van asteroid, anders lijkt alles op elkaar.
         this.transform.eulerAngles = new Vector3(0.0f, 0.0f, Random.value * 360.0f);
         // Maakt een asteroid aan op basis van de standaard gedefineerde instellingen
